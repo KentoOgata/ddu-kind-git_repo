@@ -3,14 +3,14 @@ import {
   ActionFlags,
   DduOptions,
 } from "https://deno.land/x/ddu_vim@v3.5.1/types.ts";
-import { ActionData } from "../types.ts";
+import { KindParams } from "../types.ts";
 import { isFindActionParams, isGitRepoKindItem } from "../is.ts";
 
 export async function find({
   denops,
   items,
   actionParams,
-}: ActionArguments<ActionData>) {
+}: ActionArguments<KindParams>) {
   // Validation
   if (!isFindActionParams(actionParams)) {
     return ActionFlags.None;

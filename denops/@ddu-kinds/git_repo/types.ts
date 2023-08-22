@@ -4,6 +4,8 @@ export type ActionData = {
   path: string;
 };
 
+export type KindParams = Record<string | number | symbol, never>;
+
 export type FindActionParams = {
   ui?: UserUi;
 };
