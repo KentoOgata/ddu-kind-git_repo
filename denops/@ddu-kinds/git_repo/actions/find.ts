@@ -30,8 +30,9 @@ export async function find({
   }
 
   // Find file in repo
-  await denops.call(
-    "ddu#start",
+  await denops.dispatch(
+    "ddu",
+    "start",
     {
       // name: options.name,
       push: true,
