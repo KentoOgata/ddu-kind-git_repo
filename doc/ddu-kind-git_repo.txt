@@ -1,0 +1,27 @@
+*ddu-kind-git_repo.txt*	A ddu.vim kind of git repositories
+==============================================================================
+ACTIONS                                            *ddu-kind-git_repo-actions*
+
+                                               *ddu-kind-git_repo-action-find*
+find
+
+	Find files in given repository.
+
+	Dependencies:
+
+		• source-file_external
+
+	Params:
+
+		• ui:	Ui configuration for open finder. ( |ddu-option-ui| )
+		  	(default: `#{ name: 'ff' }`)
+
+==============================================================================
+ACTION DATA                                    *ddu-kind-git_repo-action-data*
+>typescript
+	type ActionData = {
+	  path: string;
+	};
+<
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
