@@ -11,6 +11,6 @@ export function isGitRepoKindItem(item: DduItem): item is GitRepoDduItem {
 }
 
 export function isFindActionParams(x: unknown): x is FindActionParams {
-  // NOTE: Validate for x.ui is DduUi
-  return x != null && typeof x === "object";
+  return x != null && typeof x === "object" &&
+    (("ui" in x && x.ui != null) || !("ui" in x));
 }
