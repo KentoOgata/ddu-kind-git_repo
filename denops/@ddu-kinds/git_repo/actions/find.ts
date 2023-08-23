@@ -10,6 +10,7 @@ export async function find({
   denops,
   items,
   actionParams,
+  options,
 }: ActionArguments<KindParams>) {
   // Validation
   if (!isFindActionParams(actionParams)) {
@@ -34,7 +35,7 @@ export async function find({
     "ddu",
     "start",
     {
-      // name: options.name,
+      name: options.name,
       push: true,
       sources: [
         {
