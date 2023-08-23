@@ -36,7 +36,6 @@ export async function find({
     "start",
     {
       name: options.name,
-      push: true,
       sources: [
         {
           name: "file_external",
