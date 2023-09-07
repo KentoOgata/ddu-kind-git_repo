@@ -16,6 +16,11 @@ find
 		• ui:	Ui configuration for open finder. ( |ddu-option-ui| )
 		  	(default: `#{ name: 'ff' }`)
 
+                                          *ddu-kind-git_repo-action-startTmux*
+startTmux
+
+	Start new tmux session in given repository.
+
 ==============================================================================
 ACTION DATA                                    *ddu-kind-git_repo-action-data*
 >typescript
