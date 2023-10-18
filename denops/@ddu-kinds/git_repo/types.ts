@@ -1,4 +1,4 @@
-import { DduItem, UserUi } from "https://deno.land/x/ddu_vim@v3.5.1/types.ts";
+import { DduItem } from "./deps.ts";
 
 export type ActionData = {
   /**
@@ -8,10 +8,6 @@ export type ActionData = {
 };
 
 export type KindParams = Record<string | number | symbol, never>;
-
-export type FindActionParams = {
-  ui?: UserUi;
-};
 
 export type GitRepoDduItem = DduItem & {
   kind: "git_repo";

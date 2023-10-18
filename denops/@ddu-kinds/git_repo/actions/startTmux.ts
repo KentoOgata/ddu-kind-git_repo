@@ -1,10 +1,6 @@
-import {
-  ActionArguments,
-  ActionFlags,
-} from "https://deno.land/x/ddu_vim@v3.5.1/types.ts";
 import { KindParams } from "../types.ts";
 import { isGitRepoKindItem } from "../is.ts";
-import { basename } from "https://deno.land/std@0.192.0/path/mod.ts";
+import { ActionArguments, ActionFlags, basename } from "../deps.ts";
 
 export async function startTmux(
   { items }: ActionArguments<KindParams>,

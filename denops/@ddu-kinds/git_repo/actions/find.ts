@@ -1,10 +1,15 @@
-import {
-  ActionArguments,
-  ActionFlags,
-  DduOptions,
-} from "https://deno.land/x/ddu_vim@v3.5.1/types.ts";
 import { KindParams } from "../types.ts";
-import { isFindActionParams, isGitRepoKindItem } from "../is.ts";
+import { isGitRepoKindItem } from "../is.ts";
+import { ActionArguments, ActionFlags, DduOptions, UserUi } from "../deps.ts";
+
+export type ActionParams = {
+  ui?: UserUi;
+};
+
+const isFindActionParams = (x: unknown): x is ActionParams => {
+  return x != null && typeof x === "object" &&
+    (("ui" in x && x.ui != null) || !("ui" in x));
+};
 
 export async function find({
   denops,
