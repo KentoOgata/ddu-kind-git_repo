@@ -21,6 +21,46 @@ startTmux
 
 	Start new tmux session in given repository.
 
+	                                        *ddu-kind-git_repo-action-log*
+log
+
+	Open git log.
+
+	Params:
+
+	• cmd:	The command to open git log buffer.
+		(default: `#{ type: 'cmd', command: 'GinLog ++worktree=%s' }`)
+
+>typescript
+	type VimCommand = {
+	  type: "cmd";
+	  /**
+	   * Expected to contains 1 or less %s.
+	   * It will be replaced by git repository path on execute.
+	   */
+	  command: string;
+	};
+
+	type VimFunction = {
+	  type: "fn";
+	  /**
+	   * denops callback id.
+	   * You can get this by denops#callback#register({funcref}).
+	   * Function signature is expected to f(path: string).
+	   */
+	  callbackId: string;
+	};
+
+	type GitLogCmd =
+	  | ((denops: Denops, item: GitRepoDduItem) => Promise<void>)
+	  | VimCommand
+	  | VimFunction;
+
+	export type ActionParams = {
+	  cmd?: GitLogCmd;
+	};
+<
+
 ==============================================================================
 ACTION DATA                                    *ddu-kind-git_repo-action-data*
 >typescript
