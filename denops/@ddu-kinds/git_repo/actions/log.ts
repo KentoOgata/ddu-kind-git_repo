@@ -1,7 +1,6 @@
 import { GitRepoDduItem, KindParams } from "../types.ts";
 import { isGitRepoKindItem } from "../is.ts";
 import { ActionArguments, ActionFlags, Denops, is } from "../deps.ts";
-import { deferToDduLeave } from "../ddu.ts";
 
 type VimCommand = {
   type: "cmd";
@@ -65,21 +64,18 @@ export async function log({
   denops,
   items,
   actionParams,
-  context,
 }: ActionArguments<KindParams>): Promise<ActionFlags> {
   if (!isLogActionParams(actionParams)) {
     return ActionFlags.None;
   }
 
-  await deferToDduLeave(denops, context, async () => {
-    for (const item of items) {
-      if (!isGitRepoKindItem(item)) {
-        continue;
-      }
-      const cmd = actionParams.cmd ?? defaults.cmd;
-      await runCmd(denops, cmd, item);
+  for (const item of items) {
+    if (!isGitRepoKindItem(item)) {
+      continue;
     }
-  });
+    const cmd = actionParams.cmd ?? defaults.cmd;
+    await runCmd(denops, cmd, item);
+  }
 
   return ActionFlags.None;
 }
